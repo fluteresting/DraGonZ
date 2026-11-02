@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content">
+    <meta name="theme-color" content="#EDEDEA">
     <title>DragonX Software — Software a la medida de tu negocio</title>
     <meta name="description" content="Diseño y desarrollo de sitios web, apps y sistemas a la medida. Cotiza tu proyecto directo por WhatsApp.">
     <meta property="og:title" content="DragonX Software — Software a la medida">
@@ -14,14 +15,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root{
-            --paper:#F9F9F8;
-            --paper-2:#F4F4F5;
+            --paper:#EDEDEA;
+            --paper-2:#E6E6E3;
             --card:#FFFFFF;
             --ink:#1A1A1A;
             --body:#2D2D2D;
-            --muted:#5F5F63;
-            --line:#E4E1DC;
-            --line-strong:#D6D2CB;
+            --muted:#57575B;
+            --line:#D9D6D0;
+            --line-strong:#C9C4BC;
             --accent:#24506E;
             --accent-dark:#1B3B57;
             --accent-tint:#E9EEF4;
@@ -29,7 +30,7 @@
             --wa-dark:#0E6E62;
             --wa-bright:#25D366;
             --gold:#C9A34E;
-            --gold-ink:#97791F;
+            --gold-ink:#8A6E1A;
             --gold-tint:#F3ECDB;
             --serif:'Lora',Georgia,'Times New Roman',serif;
             --sans:'Plus Jakarta Sans','Segoe UI',Tahoma,sans-serif;
@@ -39,7 +40,7 @@
         }
 
         *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%}
+        html{scroll-behavior:smooth;scroll-padding-top:90px;-webkit-text-size-adjust:100%;overscroll-behavior-x:none}
         body{
             font-family:var(--sans);
             background:var(--paper);
@@ -48,9 +49,11 @@
             font-size:16.5px;
             overflow-x:hidden;
             -webkit-font-smoothing:antialiased;
+            -webkit-tap-highlight-color:rgba(36,80,110,.18)
         }
         img{max-width:100%;display:block}
         a{color:inherit;text-decoration:none}
+        a,button,.chip{touch-action:manipulation}
         button,input,textarea{font:inherit;color:inherit}
         ::selection{background:var(--gold-tint);color:var(--ink)}
         body.locked{overflow:hidden}
@@ -62,8 +65,8 @@
             animation:splashFade .55s ease 1.35s forwards
         }
         .splash img{
-            width:min(74vw,320px);border-radius:18px;
-            box-shadow:0 30px 70px -42px rgba(26,26,26,.55);
+            width:min(86vw,540px);border-radius:22px;
+            box-shadow:0 34px 80px -44px rgba(26,26,26,.55);
             opacity:0;
             animation:splashIn .55s ease .1s forwards, splashOut .6s ease 1.3s forwards
         }
@@ -108,10 +111,11 @@
         .btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px)}
         .btn-ghost{border-color:var(--line-strong);background:transparent;color:var(--ink)}
         .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
-        .btn-sm{padding:.65em 1.2em;font-size:.88rem;border-radius:12px 12px 12px 4px}
+        .btn-sm{padding:.65em 1.2em;font-size:.88rem;border-radius:12px 12px 12px 4px;min-height:44px}
         .link-arrow{
             display:inline-flex;align-items:center;gap:.5em;font-weight:600;color:var(--ink);
-            border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color var(--ease),border-color var(--ease)
+            border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:color var(--ease),border-color var(--ease);
+            min-height:44px
         }
         .link-arrow:hover{color:var(--accent);border-color:var(--accent)}
         .link-arrow span{transition:transform var(--ease)}
@@ -128,7 +132,7 @@
         /* ---------- header ---------- */
         header{
             position:fixed;top:0;left:0;right:0;z-index:60;height:var(--header-h);
-            display:flex;align-items:center;background:rgba(249,249,248,.9);
+            display:flex;align-items:center;background:rgba(237,237,234,.93);
             backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
             border-bottom:1px solid transparent;transition:border-color var(--ease)
         }
@@ -224,7 +228,7 @@
         }
         .logo-cap i{
             width:7px;height:7px;border-radius:50%;background:var(--wa-bright);flex:none;
-            box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:blink 2.2s ease-in-out infinite
+            animation:blink 2.2s ease-in-out infinite
         }
         @keyframes blink{50%{opacity:.35}}
 
@@ -268,7 +272,8 @@
         .chip{position:relative;cursor:pointer}
         .chip input{position:absolute;opacity:0;pointer-events:none}
         .chip span{
-            display:inline-block;padding:.58em 1.05em;border-radius:14px 14px 14px 4px;
+            display:inline-flex;align-items:center;min-height:44px;
+            padding:.58em 1.05em;border-radius:14px 14px 14px 4px;
             border:1px solid var(--line-strong);background:var(--card);
             font-size:.9rem;color:var(--body);transition:border-color var(--ease),background var(--ease),color var(--ease)
         }
@@ -277,7 +282,8 @@
         .chip input:focus-visible + span{outline:2px solid var(--accent);outline-offset:2px}
         .inp{
             width:100%;background:var(--paper);border:1px solid var(--line-strong);border-radius:14px 14px 14px 4px;
-            padding:.85em 1.05em;font-size:.95rem;transition:border-color var(--ease),background var(--ease);resize:vertical
+            padding:.85em 1.05em;font-size:16px;min-height:48px;
+            transition:border-color var(--ease),background var(--ease);resize:vertical
         }
         .inp::placeholder{color:#8B8B8F}
         .inp:focus{outline:none;border-color:var(--accent);background:#fff}
@@ -332,10 +338,10 @@
         .big-num:hover{color:var(--accent)}
 
         /* ---------- footer ---------- */
-        footer{border-top:1px solid var(--line);padding:46px 0 32px;background:#F6F6F4}
+        footer{border-top:1px solid var(--line);padding:46px 0 32px;background:#E7E7E4}
         .f-grid{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start}
-        .f-links{display:flex;flex-wrap:wrap;gap:24px;font-size:.9rem;color:var(--muted)}
-        .f-links a{transition:color var(--ease)}
+        .f-links{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:.9rem;color:var(--muted)}
+        .f-links a{transition:color var(--ease);display:inline-block;padding:10px 0;min-height:44px}
         .f-links a:hover{color:var(--accent)}
         .f-links a[href*="wa.me"]:hover{color:var(--wa)}
         .f-bottom{
@@ -344,13 +350,16 @@
             font-size:.78rem;color:#7A7A7E;letter-spacing:.04em
         }
 
-        /* ---------- floating whatsapp ---------- */
+        /* ---------- floating whatsapp (siempre visible) ---------- */
         .fab{
-            position:fixed;right:20px;bottom:20px;z-index:70;width:56px;height:56px;
+            position:fixed;z-index:70;
+            right:calc(20px + env(safe-area-inset-right,0px));
+            bottom:calc(20px + env(safe-area-inset-bottom,0px));
+            width:56px;height:56px;
             border-radius:50% 50% 50% 16px;background:var(--wa-bright);display:grid;place-items:center;color:#fff;
             box-shadow:0 14px 34px -12px rgba(18,140,126,.65);transition:transform var(--ease),background var(--ease)
         }
-        .fab svg{width:27px;height:27px}
+        .fab svg{width:27px;height:27px;pointer-events:none}
         .fab:hover{transform:translateY(-3px);background:var(--wa)}
         .fab .tip{
             position:absolute;right:66px;top:50%;transform:translateY(-50%);
@@ -381,11 +390,14 @@
             .quote-side{border-left:none;border-top:1px solid var(--line)}
             .steps{grid-template-columns:repeat(2,1fr)}
         }
+        @media (max-width:700px){
+            .hero-visual{display:none}
+        }
         @media (max-width:860px){
             .nav-links{
                 position:fixed;top:var(--header-h);left:0;right:0;
                 flex-direction:column;align-items:flex-start;gap:0;
-                background:rgba(249,249,248,.98);backdrop-filter:blur(10px);
+                background:rgba(237,237,234,.98);backdrop-filter:blur(10px);
                 border-bottom:1px solid var(--line);padding:8px 20px 20px;
                 transform:translateY(-140%);transition:transform 260ms ease;z-index:55
             }
@@ -398,12 +410,6 @@
         }
         @media (max-width:640px){
             .hero{padding-top:calc(var(--header-h) + 34px);padding-bottom:44px}
-            .hero-visual{max-width:185px;margin-top:38px}
-            .logo-card{padding:10px;border-radius:16px 16px 5px 16px}
-            .orbit{inset:-11px;border-radius:20px 20px 6px 20px}
-            .orbit i{top:-4px;left:calc(50% - 4px);width:8px;height:8px}
-            .logo-cap{justify-content:center;font-size:.72rem;text-align:center}
-            .hero h1{margin-top:.35em}
             .svc{grid-template-columns:1fr}
             .svc-item:nth-child(even){margin-top:0;padding-left:0}
             .steps{grid-template-columns:1fr}
@@ -412,7 +418,14 @@
             .hero-actions{flex-direction:column;align-items:stretch}
             .hero-actions .btn{width:100%}
             .quote-send .btn{width:100%}
-            .fab{width:52px;height:52px;right:16px;bottom:16px}
+            .fab{width:54px;height:54px;right:calc(16px + env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px))}
+        }
+        @media (max-width:380px){
+            .wrap{width:min(100% - 30px,var(--maxw))}
+            .hero h1{font-size:2.05rem}
+            .section h2{font-size:1.8rem}
+            .cta h2{font-size:1.85rem}
+            .fab{width:52px;height:52px}
         }
     </style>
 </head>
@@ -420,7 +433,7 @@
 
 <!-- ============ SPLASH ============ -->
 <div class="splash" id="splash" aria-hidden="true">
-    <img src="Logo.jpg" alt="">
+    <img src="Logo.jpg" alt="" width="1176" height="888" decoding="async">
 </div>
 
 <!-- ============ HEADER ============ -->
