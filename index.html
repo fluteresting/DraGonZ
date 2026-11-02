@@ -46,6 +46,7 @@
             color:var(--body);
             line-height:1.65;
             font-size:16.5px;
+            overflow-x:hidden;
             -webkit-font-smoothing:antialiased;
         }
         img{max-width:100%;display:block}
@@ -357,7 +358,7 @@
         /* ---------- responsive ---------- */
         @media (max-width:980px){
             .hero-grid{grid-template-columns:1fr}
-            .hero-visual{order:-1;max-width:420px;margin-top:0}
+            .hero-visual{order:-1;max-width:360px;margin-inline:auto;margin-top:0}
             .quote-panel{grid-template-columns:1fr}
             .quote-side{border-left:none;border-top:1px solid var(--line)}
             .steps{grid-template-columns:repeat(2,1fr)}
@@ -378,6 +379,12 @@
             .nav-cta .btn-ghost,.nav-cta .btn-wa-ghost{display:none}
         }
         @media (max-width:640px){
+            .hero{padding-top:calc(var(--header-h) + 34px);padding-bottom:44px}
+            .hero-visual{max-width:250px}
+            .logo-card{padding:10px;border-radius:16px 16px 5px 16px}
+            .orbit{inset:-11px;border-radius:20px 20px 6px 20px}
+            .orbit i{top:-4px;left:calc(50% - 4px);width:8px;height:8px}
+            .logo-cap{justify-content:center;font-size:.72rem;text-align:center}
             .svc{grid-template-columns:1fr}
             .svc-item:nth-child(even){margin-top:0;padding-left:0}
             .steps{grid-template-columns:1fr}
@@ -425,19 +432,19 @@
         <div>
             <span class="eyebrow rv">Software a la medida</span>
             <h1 class="rv" data-d="1">Programo el software que <em>tu negocio</em> necesita.</h1>
-            <p class="lead rv" data-d="2">Sitios web, apps, paneles y sistemas hechos desde cero para tu caso. Soy uno solo detrás de DragonX: hablas directo con quien diseña y escribe el código, sin intermediarios.</p>
+            <p class="lead rv" data-d="2">Webs, apps y sistemas a medida. Hablas directo conmigo, sin intermediarios.</p>
 
             <div class="hero-actions rv" data-d="3">
                 <a class="btn btn-primary" href="#cotizar">Cotizar mi proyecto</a>
                 <a class="link-arrow link-arrow-wa" href="https://wa.me/525577502645?text=Hola%20DragonX%20Software%2C%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Escríbeme por WhatsApp <span>→</span></a>
             </div>
 
-            <p class="hero-note rv" data-d="3">La primera cotización es sin costo y sin compromiso: primero vemos si tu idea es viable.</p>
+            <p class="hero-note rv" data-d="3">La primera cotización es gratis y sin compromiso.</p>
 
             <div class="facts rv" data-d="4">
                 <div class="fact"><b>1 a 1</b><span>Siempre hablas conmigo</span></div>
-                <div class="fact"><b>A medida</b><span>Cada proyecto se diseña para su caso</span></div>
-                <div class="fact"><b>Sin costo</b><span>La primera cotización</span></div>
+                <div class="fact"><b>A medida</b><span>Diseñado para tu caso</span></div>
+                <div class="fact"><b>Gratis</b><span>La primera cotización</span></div>
             </div>
         </div>
 
@@ -459,34 +466,34 @@
 <section class="section" id="servicios">
     <div class="wrap">
         <span class="eyebrow rv">Lo que hago</span>
-        <h2 class="rv" data-d="1">Servicios hechos <em>a tu medida</em></h2>
-        <p class="lead rv" data-d="2">Trabajo por proyecto. Aquí está lo que suelo construir; si tu caso no está en la lista, cuéntamelo y lo revisamos.</p>
+        <h2 class="rv" data-d="1">Servicios <em>a tu medida</em></h2>
+        <p class="lead rv" data-d="2">¿No ves lo tuyo? Mándame un mensaje y lo vemos.</p>
 
         <div class="svc">
             <article class="svc-item rv" data-d="1">
                 <span class="num">01</span>
                 <h3>Sitios web</h3>
-                <p>Landing pages, páginas de información y portafolios. Se cargan rápido y se ven bien en celular y en compu.</p>
+                <p>Landings y páginas que cargan rápido en celular y compu.</p>
             </article>
             <article class="svc-item rv" data-d="2">
                 <span class="num">02</span>
                 <h3>Apps móviles</h3>
-                <p>Aplicaciones para Android e iOS cuando tu negocio necesita estar en el teléfono de tus clientes.</p>
+                <p>Aplicaciones para Android e iOS.</p>
             </article>
             <article class="svc-item rv" data-d="1">
                 <span class="num">03</span>
                 <h3>Sistemas a medida</h3>
-                <p>Inventarios, citas, reportes y control diario. Automatizo lo que hoy haces a mano o en hojas de cálculo.</p>
-            </article>
-            <article class="svc-item rv" data-d="1">
-                <span class="num">04</span>
-                <h3>Paneles de control</h3>
-                <p>Un lugar con tus números a la vista: ventas, stock, citas. Para decidir con datos en lugar de intuición.</p>
+                <p>Inventarios, citas y reportes: lo que hoy haces a mano.</p>
             </article>
             <article class="svc-item rv" data-d="2">
+                <span class="num">04</span>
+                <h3>Paneles de control</h3>
+                <p>Tus números a la vista para decidir con datos.</p>
+            </article>
+            <article class="svc-item rv" data-d="1">
                 <span class="num">05</span>
                 <h3>Integraciones y bots</h3>
-                <p>Conecto WhatsApp, APIs y otras herramientas para ahorrarte trabajo repetitivo.</p>
+                <p>Conecto WhatsApp y APIs para ahorrarte trabajo.</p>
             </article>
         </div>
     </div>
@@ -498,8 +505,8 @@
 <section class="section" id="cotizar">
     <div class="wrap">
         <span class="eyebrow rv">Cotiza</span>
-        <h2 class="rv" data-d="1">Cuéntame qué necesitas</h2>
-        <p class="lead rv" data-d="2">Marca lo que buscas y mándamelo por WhatsApp. Te contesto con alcance, tiempos y precio. Si algo no encaja con tu presupuesto, te lo digo de frente.</p>
+        <h2 class="rv" data-d="1">¿Qué necesitas?</h2>
+        <p class="lead rv" data-d="2">Marca lo que buscas y te contesto por WhatsApp con precio y tiempos.</p>
 
         <div class="quote-panel rv" data-d="2">
             <div class="quote-main">
@@ -515,28 +522,13 @@
                 </div>
 
                 <div class="field">
-                    <label>2. ¿Para cuándo lo necesitas?</label>
-                    <div class="chips">
-                        <label class="chip"><input type="radio" name="cuando" value="Lo antes posible"><span>Ya mismo</span></label>
-                        <label class="chip"><input type="radio" name="cuando" value="En 1 mes"><span>En 1 mes</span></label>
-                        <label class="chip"><input type="radio" name="cuando" value="En 2 o 3 meses"><span>En 2–3 meses</span></label>
-                        <label class="chip"><input type="radio" name="cuando" value="Solo estoy explorando"><span>Solo explorando</span></label>
-                    </div>
-                </div>
-
-                <div class="field">
-                    <label>3. Cuéntame brevemente</label>
+                    <label>2. Cuéntame brevemente <span style="text-transform:none;letter-spacing:0;font-weight:400">(opcional)</span></label>
                     <textarea class="inp" id="detalles" rows="3" placeholder="Ej: Necesito controlar citas y clientes de mi negocio..."></textarea>
-                </div>
-
-                <div class="field">
-                    <label>Tu nombre (opcional)</label>
-                    <input class="inp" id="nombre" type="text" placeholder="¿Cómo te llamas?">
                 </div>
 
                 <div class="quote-send">
                     <a class="btn btn-wa" id="sendQuote" href="https://wa.me/525577502645" target="_blank" rel="noopener">Enviar por WhatsApp</a>
-                    <span class="hint">Se abre WhatsApp con tu solicitud ya escrita.</span>
+                    <span class="hint">Se abre WhatsApp con tu solicitud lista.</span>
                 </div>
             </div>
 
@@ -547,8 +539,7 @@
                 </div>
                 <ul class="side-list">
                     <li>Cotización sin costo</li>
-                    <li>Respuesta directa, sin intermediarios</li>
-                    <li>Precio y tiempos claros antes de empezar</li>
+                    <li>Precio y tiempos claros</li>
                     <li>Si no es viable, te lo digo</li>
                 </ul>
                 <a class="btn btn-wa-ghost btn-sm" href="https://wa.me/525577502645?text=Hola%20DragonX%20Software%2C%20quiero%20una%20cotizaci%C3%B3n." target="_blank" rel="noopener" style="align-self:flex-start">Abrir chat ahora</a>
@@ -564,28 +555,28 @@
     <div class="wrap">
         <span class="eyebrow rv">Cómo trabajo</span>
         <h2 class="rv" data-d="1">De la idea a la entrega</h2>
-        <p class="lead rv" data-d="2">Un proceso corto y sin vueltas. En cada paso sabes en qué va tu proyecto.</p>
+        <p class="lead rv" data-d="2">Sin vueltas. Siempre sabes en qué va.</p>
 
         <div class="steps">
             <div class="step rv" data-d="1">
                 <b>01</b>
                 <h3>Conversamos</h3>
-                <p>Me planteas tu necesidad y yo hago preguntas para entender el caso real.</p>
+                <p>Me cuentas qué necesitas.</p>
             </div>
             <div class="step rv" data-d="2">
                 <b>02</b>
                 <h3>Propuesta</h3>
-                <p>Te escribo con alcance, tiempos y precio. Si algo no cuadra, lo ajustamos antes de decidir.</p>
+                <p>Te escribo con alcance, tiempos y precio.</p>
             </div>
             <div class="step rv" data-d="3">
                 <b>03</b>
                 <h3>Desarrollo</h3>
-                <p>Diseño y programo por etapas, con avances que puedes ver mientras avanzamos.</p>
+                <p>Programo por etapas y ves avances.</p>
             </div>
             <div class="step rv" data-d="4">
                 <b>04</b>
                 <h3>Entrega</h3>
-                <p>Publicamos, te explico cómo usarlo y quedo disponible para ajustes y soporte.</p>
+                <p>Publicamos, te enseño a usarlo y te doy soporte.</p>
             </div>
         </div>
     </div>
@@ -597,7 +588,7 @@
         <div class="cta rv">
             <span class="eyebrow">Hablemos</span>
             <h2>¿Tienes una idea? <em>Cuéntamela</em>.</h2>
-            <p>Escríbeme por WhatsApp y te contesto yo mismo. Si tu proyecto es viable, te envío una cotización clara.</p>
+            <p>Te contesto yo mismo y, si es viable, te mando una cotización.</p>
             <a class="btn btn-wa" href="https://wa.me/525577502645?text=Hola%20DragonX%20Software%2C%20quiero%20cotizar%20un%20proyecto." target="_blank" rel="noopener">Contáctanos por WhatsApp</a>
             <a class="big-num" href="tel:+525577502645">+52 55 7750 2645</a>
         </div>
@@ -680,14 +671,10 @@
     }
     function buildMsg(){
         var tipo = val('tipo') || 'Por definir';
-        var cuando = val('cuando') || 'Por definir';
         var detalles = document.getElementById('detalles').value.trim();
-        var nombre = document.getElementById('nombre').value.trim();
 
         var msg = 'Hola DragonX Software! Quiero cotizar un proyecto.';
         msg += '\n\n• Tipo: ' + tipo;
-        msg += '\n• Fecha: ' + cuando;
-        if(nombre) msg += '\n• Nombre: ' + nombre;
         if(detalles) msg += '\n\nDetalles: ' + detalles;
         msg += '\n\n(Enviado desde la página)';
 
@@ -696,9 +683,7 @@
     document.querySelectorAll('input[type=radio]').forEach(function(r){
         r.addEventListener('change', buildMsg);
     });
-    ['detalles','nombre'].forEach(function(id){
-        document.getElementById(id).addEventListener('input', buildMsg);
-    });
+    document.getElementById('detalles').addEventListener('input', buildMsg);
     send.addEventListener('click', buildMsg);
     buildMsg();
 })();
