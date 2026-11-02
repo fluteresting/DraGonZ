@@ -53,6 +53,23 @@
         a{color:inherit;text-decoration:none}
         button,input,textarea{font:inherit;color:inherit}
         ::selection{background:var(--gold-tint);color:var(--ink)}
+        body.locked{overflow:hidden}
+
+        /* ---------- splash (logo de entrada) ---------- */
+        .splash{
+            position:fixed;inset:0;z-index:65;background:var(--paper);
+            display:grid;place-items:center;
+            animation:splashFade .55s ease 1.35s forwards
+        }
+        .splash img{
+            width:min(74vw,320px);border-radius:18px;
+            box-shadow:0 30px 70px -42px rgba(26,26,26,.55);
+            opacity:0;
+            animation:splashIn .55s ease .1s forwards, splashOut .6s ease 1.3s forwards
+        }
+        @keyframes splashIn{from{opacity:0;transform:translateY(12px) scale(.97)}to{opacity:1;transform:none}}
+        @keyframes splashOut{to{opacity:0;transform:scale(.96)}}
+        @keyframes splashFade{to{opacity:0;visibility:hidden}}
 
         h1,h2,h3{font-family:var(--serif);color:var(--ink);font-weight:500;letter-spacing:-.015em;line-height:1.14}
         em{font-style:italic}
@@ -353,12 +370,13 @@
         @media (prefers-reduced-motion:reduce){
             *{animation:none!important;transition-duration:.01ms!important}
             .rv{opacity:1;transform:none}
+            .splash{display:none}
         }
 
         /* ---------- responsive ---------- */
         @media (max-width:980px){
             .hero-grid{grid-template-columns:1fr}
-            .hero-visual{max-width:340px;margin-inline:auto;margin-top:clamp(34px,7vw,54px)}
+            .hero-visual{max-width:300px;margin-inline:auto;margin-top:clamp(34px,7vw,54px)}
             .quote-panel{grid-template-columns:1fr}
             .quote-side{border-left:none;border-top:1px solid var(--line)}
             .steps{grid-template-columns:repeat(2,1fr)}
@@ -380,7 +398,7 @@
         }
         @media (max-width:640px){
             .hero{padding-top:calc(var(--header-h) + 34px);padding-bottom:44px}
-            .hero-visual{max-width:230px;margin-top:40px}
+            .hero-visual{max-width:185px;margin-top:38px}
             .logo-card{padding:10px;border-radius:16px 16px 5px 16px}
             .orbit{inset:-11px;border-radius:20px 20px 6px 20px}
             .orbit i{top:-4px;left:calc(50% - 4px);width:8px;height:8px}
@@ -399,6 +417,11 @@
     </style>
 </head>
 <body>
+
+<!-- ============ SPLASH ============ -->
+<div class="splash" id="splash" aria-hidden="true">
+    <img src="Logo.jpg" alt="">
+</div>
 
 <!-- ============ HEADER ============ -->
 <header id="header">
@@ -633,6 +656,20 @@
     var header = document.getElementById('header');
     var burger = document.getElementById('burger');
     var navLinks = document.getElementById('navLinks');
+
+    var splash = document.getElementById('splash');
+    if(splash){
+        var reduce = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+        if(reduce){
+            splash.remove();
+        } else {
+            document.body.classList.add('locked');
+            setTimeout(function(){
+                document.body.classList.remove('locked');
+                if(splash.parentNode) splash.remove();
+            }, 2100);
+        }
+    }
 
     document.getElementById('year').textContent = new Date().getFullYear();
 
